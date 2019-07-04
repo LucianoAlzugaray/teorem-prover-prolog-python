@@ -1,0 +1,10 @@
+version: '3'
+services:
+  display:
+    build: .
+    network_mode: host
+    environment: 
+      - DISPLAY=$DISPLAY
+    volumes:
+      - $HOME/.Xauthority:/root/.Xauthority:rw
+      - ./src:/usr/src/app/src
