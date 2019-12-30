@@ -1,3 +1,5 @@
+:- [types].
+
 addLema(Formula):-
     parse(Formula, AST),
     check(AST),
@@ -172,3 +174,8 @@ check(Formula):-
 
 check(Formula):-
     predicate(_,_) = Formula.
+
+prove(AST) :-
+    proveSequent([],AST,none, 0, Queue).
+
+proveSequent(Right, [], Sibling, Depth, []) :-
